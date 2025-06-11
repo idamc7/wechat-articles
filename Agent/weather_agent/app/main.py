@@ -21,10 +21,11 @@ def run_job():
         weather_data = weather_service.get_daily_weather(user['location_id'])
         
         if weather_data and weather_data.get('code') == '200':
+            today_weather = weather_data.get('daily', [{}])[0]
             report = weather_agent.generate_weather_report(
                 user_name=user['name'],
                 city=user['city'],
-                weather_data=weather_data
+                weather_data=today_weather
             )
             print(f"Generated report for {user['name']}:\n{report}")
             
@@ -32,7 +33,8 @@ def run_job():
             notification_service.send_notification(
                 key=user['bark_key'],
                 title=f"{user['city']} 天气提醒 🌤️",
-                body=report
+                body=report,
+                hefeng_code=int(today_weather.get('iconDay'))
             )
             print(f"Notification sent for {user['name']}.")
         else:

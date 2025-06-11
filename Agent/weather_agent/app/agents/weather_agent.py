@@ -39,9 +39,8 @@ class WeatherAgent:
         """
         Generates a friendly and informative weather report.
         """
-        today_weather = weather_data.get('daily', [{}])[0]
         return self.chain.invoke({
             "user_name": user_name,
             "city": city,
-            "weather_data": str(today_weather)
+            "weather_data": str(weather_data)
         })
