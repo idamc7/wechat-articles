@@ -1,0 +1,18 @@
+# API Keys
+qweather_api_key: "your_hefeng_api_key"
+qweather_base_url: "https://your_hefeng_host_name/v7/weather"
+deepseek_api_key: "your_deepseek_api_key"
+
+# Users and Locations
+users:
+  - name: "老婆"
+    city: "新化"
+    location_id: "101250805" # 新化的Location ID
+    bark_key: "your_wife_bark_key"
+  - name: "晨曦"
+    city: "长沙"
+    location_id: "101250101" # 长沙的Location ID
+    bark_key: "your_key"
+# Scheduler
+cron_hour: 7
+cron_minute: 0
